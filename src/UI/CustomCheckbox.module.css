@@ -1,0 +1,39 @@
+.list-checkbox{
+    border: 0;
+    border-radius: 50%;
+}
+.list-item-label{
+    cursor: pointer;
+    font-size: 24px;
+}
+
+input[type='checkbox']  {
+    display: none;
+  } 
+
+.list-item-label .checkmark{
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+.list-item-label .checkmark::after{
+    content: "";
+    position: absolute;
+}
+
+.list-item-label input:checked ~ .checkmark::after{
+    width: 7px;
+    height: 11px;
+    left: 5px;
+    top:1.5px;
+    border: solid #ED645E;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

@@ -1,0 +1,114 @@
+#root{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.list-container{
+    width: 350px;
+    background: #ED645E;
+    padding: 25px 15px;
+}
+
+.list-form{
+    display: flex;
+    height: 35px;
+}
+
+.list-form-item-name{
+    width: 100%;
+}
+
+.list-form-item-name, .list-form-add-btn{
+    background: #FBC1BE;
+    font-size: 20px;
+    border: 0;
+}
+
+.list-form-item-name:focus{
+    outline: 0;
+}
+
+.list-form-add-btn{
+    cursor: pointer;
+}
+
+.list{
+    list-style: none;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.list-item{
+    display: flex;
+    justify-content:space-between;
+    margin-top: 8px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+}
+
+
+.list-item-counter{
+    background-color: white;
+    border-radius: 30px;
+    font-size: 20px;
+
+}
+
+.list-item-counter, .counter-btn, .save-btn, .list-form-add-btn{
+    color: #ED645E;
+}
+
+.counter-btn{
+    background: none;
+    border:0;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.counter-btn-left{
+    padding-right: 5px;
+}
+
+.counter-btn-right{
+    padding-left: 5px;
+}
+
+
+.total{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px
+}
+
+.counter-btn:hover, .list-form-add-btn:hover{
+    opacity: 0.7;
+}
+
+.empty-list{
+    text-align: center;
+    font-size: 35px;
+}
+
+
+.item-enter{
+    opacity: 0;
+}
+
+.item-enter-active{
+    opacity: 1;
+    transition:  500ms ease-in;
+}
+
+.item-exit{
+    opacity: 1;
+}
+
+.item-exit-active{
+    opacity: 0;
+    transition:  500ms ease-in;
+}
