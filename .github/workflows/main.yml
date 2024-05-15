@@ -3,8 +3,8 @@ on:
   push:
   workflow_dispatch:
 env:
-  NODE_ENV: prodaction
-  NODE_SECRET: 42
+  NODE_ENV: you can see it
+  NODE_SECRET: ${{ secrets.ECHO_CHECK }}
 jobs:
   build:
     runs-on: ubuntu-latest
