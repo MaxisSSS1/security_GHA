@@ -3,7 +3,7 @@ on:
   push:
   workflow_dispatch:
 env:
-  NODE_ENV: you can see it
+  NODE_PASSWORD: 12345678
   NODE_SECRET: ${{ secrets.GH_SECRET }}
 jobs:
   build:
@@ -11,7 +11,9 @@ jobs:
     steps:
       - name: TruffleHog OSS
         uses: trufflesecurity/trufflehog@v3.76.3
+      - name: GitGuardian Shield Action
+        uses: GitGuardian/ggshield-action@v1.27.0
       - name: Secrets usage
         run: |
-          echo "${{ env.NODE_ENV }}"
+          echo "${{ env.NODE_PASSWORD }}"
           echo "${{ env.NODE_SECRET }}"
