@@ -13,5 +13,5 @@ jobs:
         uses: trufflesecurity/trufflehog@v3.76.3
       - name: Secrets usage
         run: |
-          echo NODE_PASSWORD
+          echo "${{ env.NODE_PASSWORD }}"
           echo "${{ env.NODE_SECRET }}"
