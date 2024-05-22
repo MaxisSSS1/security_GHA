@@ -3,7 +3,7 @@ on:
   push:
   workflow_dispatch:
 env:
-  NODE_PASSWORD: 12345678
+  NODE_PASSWORD: ${{ secrets.GH_SECRET }}
   NODE_SECRET: ${{ secrets.GH_SECRET }}
 jobs:
   build:
