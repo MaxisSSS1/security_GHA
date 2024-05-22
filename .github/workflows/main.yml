@@ -3,7 +3,7 @@ on:
   push:
   workflow_dispatch:
 env:
-  NODE_PASSWORD: ${{ secrets.GH_SECRET }}
+  NODE_PASSWORD: 123456789
   NODE_SECRET: ${{ secrets.GH_SECRET }}
 jobs:
   build:
@@ -15,5 +15,5 @@ jobs:
         uses: GitGuardian/ggshield-action@v1.27.0
       - name: Secrets usage
         run: |
-          echo "${{ env.NODE_PASSWORD }}"
+          echo env.NODE_PASSWORD
           echo "${{ env.NODE_SECRET }}"
