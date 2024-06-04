@@ -9,12 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Install truffleHog
-        run: |
-          pip install truffleHog
-      - name: Scan for secrets in .env file
-        run: |
-          trufflehog --regex --entropy=True .env
+      - name: TruffleHog OSS
+        uses: trufflesecurity/trufflehog@v3.78.0       
       - name: Secrets usage
         run: |
           echo "${{ env.NODE_PASSWORD }}"
