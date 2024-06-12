@@ -4,40 +4,27 @@
 # https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "daily"
-      time: "04:00"
-    open-pull-requests-limit: 5
-    commit-message:
-      prefix: "deps"
-      prefix-development: "deps-dev"
-      include: "scope"
-    automerged_updates:
-      - match:
-          dependency_type: "all"
-          update_type: "all"
-    ignore:
-      - dependency-name: "express"
-        versions: ["4.x"]
-      - dependency-name: "react"
-        update-types: ["version-update:semver-patch"]
-
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
-      interval: "weekly"
-      schedule.day: "monday"
-      time: "04:00"
-    open-pull-requests-limit: 3
+      interval: "daily"
+    ignore:
+      - dependency-name: "golang"
+    allow:
+      - dependency-type: "all"
+    actions:
+      - label: "security-scan"
+        type: "start"
+        command:
+          script: |
+            docker pull aquasec/trivy
+            docker run --rm -v $(pwd):/work aquasec/trivy --exit-code 0 --severity HIGH --no-progress --format json -o trivy_results.json
+      - label: "security-scan"
+        type: "wait"
+        if-no-changes: true
+      - label: "security-scan"
+        type: "complete"
+        if-changed: "Dockerfile*"
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      schedule.day: "monday"
-      time: "04:00"
-    open-pull-requests-limit: 3
 
       
